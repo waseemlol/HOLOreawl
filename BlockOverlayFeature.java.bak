@@ -1,0 +1,23 @@
+package net.holoclient.features;
+
+import net.holoclient.Config;
+
+public final class BlockOverlayFeature {
+    private BlockOverlayFeature() {}
+
+    public static Config.ModState state() {
+        return Config.get("Block Overlay");
+    }
+
+    public static boolean enabled() {
+        return state().enabled;
+    }
+
+    public static int color() {
+        return state().color;
+    }
+
+    public static float intensity() {
+        return Math.max(0.0f, Math.min(1.0f, state().intensity));
+    }
+}
